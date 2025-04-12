@@ -1,0 +1,28 @@
+---
+import SMWHead from "../components/SMWHead.astro";
+import Navigation from "../components/Navigation.astro";
+
+import '../styles/global.css';
+---
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <title></title>
+   </head>
+
+   <body>
+      <SMWHead />
+
+      <marquee>Welcome to my site.</marquee>
+
+      <Navigation />
+
+      <slot />
+
+   </body>
+</html>
+
+<script src="../scripts/moon_title.ts"></script>
