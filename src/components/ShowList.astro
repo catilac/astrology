@@ -1,0 +1,18 @@
+---
+import showData from '../data/performances.json';
+---
+
+<div class='row'>
+   <ul class="broider3">
+      {showData.map((show) => <li>{show.date} - {show.loc}</li>)}
+   </ul>
+</div>
+
+<style>
+
+   ul { 
+      list-style-type: none;
+      padding: 5px;
+   }
+
+</style>
