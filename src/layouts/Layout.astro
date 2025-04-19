@@ -1,6 +1,7 @@
 ---
 import SMWHead from "../components/SMWHead.astro";
 import Navigation from "../components/Navigation.astro";
+import Grid from "../components/Grid.astro";
 
 import '../styles/global.css';
 ---
@@ -14,15 +15,28 @@ import '../styles/global.css';
    </head>
 
    <body>
-      <SMWHead />
-
-      <marquee>Welcome to my site.</marquee>
-
-      <Navigation />
-
-      <slot />
-
+      <Grid>
+         <SMWHead />
+         <!-- TODO: figure out this marquee
+         <marquee>Welcome to my site.</marquee>-->
+         <Navigation />
+         <slot />
+      </Grid>
    </body>
 </html>
 
 <script src="../scripts/moon_title.ts"></script>
+
+<style>
+   :root {
+      color-scheme: light dark;
+      --moon-gray:   light-dark(#f4eeff, #dbd8e3);
+      --moon-light:  light-dark(#dcd6f7, #5c5470); 
+      --moon-medium: light-dark(#a6b1e1, #352f44);
+      --moon-heavy:  light-dark(#424874, #2a2438);
+   }
+
+   body {
+      background-color: var(--moon-medium);
+   }
+</style>

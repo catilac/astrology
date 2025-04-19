@@ -2,17 +2,16 @@
 import showData from '../data/performances.json';
 ---
 
-<div class='row'>
-   <ul class="broider3">
-      {showData.map((show) => <li>{show.date} - {show.loc}</li>)}
-   </ul>
-</div>
+<ul class="broider3">
+   {showData.map((show) => <li>{show.date} - {show.loc}</li>)}
+</ul>
 
 <style>
-
    ul { 
       list-style-type: none;
       padding: 5px;
+      width: fit-content;
+      grid-column-start: 1;
+      grid-row-start: 3;
    }
-
 </style>
