@@ -1,0 +1,22 @@
+<div class='grid'>
+   <slot />
+</div>
+
+<style>
+.grid {
+   display: grid;
+   gap: 1rem;
+   margin: 0 auto;
+   max-width: 1200px;
+   place-items: center;
+}
+@media (min-width: 768px) and (max-width: 991px) {
+   .grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+   .grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1200px) {
+   .grid { grid-template-columns: repeat(4, 1fr); }
+}
+</style>

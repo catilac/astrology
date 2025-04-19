@@ -1,25 +1,12 @@
 --- 
 import Layout from "../layouts/Layout.astro";
+import About from "../components/About.astro";
+import Now from "../components/Now.astro";
+import Contact from "../components/Contact.astro";
 ---
 
 <Layout>
-   <div class="row">
-      <div class="item-50 broider3">
-         <h4>Bio &#x263D;</h4>
-         <b>Moon Davé (she/her)</b> is a sound artist, musician, software engineer, and creative tool maker based in NYC.<br />
-         She works with modular synthesizers, supercollider, and writes software for the web and mobile iOS. She is passionate about building FLOSS tools for the purpose of increasing access to, and teaching computational thinking through art.
-      </div>
-
-      <div class="item-50 broider3">
-         <h4>Currently...</h4>
-         <ul>
-            <li>Working on experimental drawing app for iPad</li>
-            <li>Starting a personal journey with webGPU</li>
-         </ul>
-      </div>
-   </div>
-
-   <div class="row">
-      <p class="broider2" style="padding:10px;">I can be reached by email: <em>moon [at] softmoon.world</em></p>
-   </div>
+   <About />
+   <Now />
+   <Contact/>
 </Layout>

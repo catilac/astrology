@@ -1,16 +1,5 @@
 /* global.css */
 
-.row {
-    display: flex;
-    justify-content: center;
-}
-
-.row > .item {}
-.row > .item-25 { padding: 13px; margin: 10px; width: 25%; }
-.row > .item-30 { padding: 13px; margin: 10px; width: 30%; }
-.row > .item-50 { padding: 13px; margin: 10px; width: 50%; }
-.row > .item-75 { padding: 13px; margin: 10px; width: 75%; }
-
 .broider {
     border-image:  url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAABUCAYAAAAcaxDBAAADGUlEQVR4Xu2a22KjMAwF0///6N3kDQzrYZDcNN3TV1vy0eiCIf16rP/7A0d8rZewO2Gpnu8IZmkAN5KxVE+AHjNSYlIyvlgdSyvioobttqV6VgAdBdMZdr9laP3b/Ts9FKwV/9pvBdn9VpP1b/cHKGQkQJsB/Xqg9BAZeY5jzAKy+z+u5QN0KBl68FFFBGiA7glQRVDFjTPN+qOKpWsT2Vs9dB7O0O4DrT8CQgGSvdVD5wXoyq9fZ+3bnUHrjyqMKobsrR4671ChJIBm4uqZWj1/KcCzS3CAqhqcb35VV4AGKD5Ytxs+ruVtfmnm2o6xM9b6VwnpaPkA3RAI0MfDdsz061aALgBKM6j7e6MdETTDSB/F1/r9tONNyQ75AB0IVDMaoAE6rYFdh9IT7swTtTit2wpdvZ9mNDEK0CFDAdpcsgH66UCrM7Fq38zv4I70qQqmgfs6nQ6kgKv25L+6TvoCVBIOUAmMtv84oFbQlTFDECrrS/VeCa4qgOwrcO7Ykh5an54ZoMfPdwEqy5SA0fryCqV4SgLJ+YX16vnKvqPlKSYliJzdWK+er+wDlDMUoPA16UoRbV20Ax1zSAfQOtdE7w7SU13fqbXZuvJuTwJ7cbE30lNdD1A5Egh4gH43UPW56ilOZZA7tH1HVZ+y/4Tf5auEFZCTw5R9gHK6AlTOSEKqgSqDk5k5CrpzFaOgOtcpXlqfalnx33cBOiAnIPYW0FldHb6oAmk9FSpn6tuBVv8bjyp+9YwmgKRvF3/HDA3QTcoDlN/0UqHyydXe8vS9084wK5BuFaSP7KnCiL/y3/HqaQMm4BSgtQ9QIBqg8h746yqUAqJ1ajE1k56H2f125tuRNd1PYgne2XqA3qE2sQnQAN0RKD30OlreVqQVbGec1UP1pPwFKOE8vppOH3oBGqD4s7VqUeZ5OK+9Qu0MpP0EgO6V5N/O4AuM/73lTst3BxCgQ34oKZSAAA3Qn93ypZn1NKYO+O9maIA2t3yABmjvDKWZRPfGakWSPd0a6FZC/qfrHc7fGsBJdG/VE6ClejwaB2gz0L+xUIBUm4cQlQAAAABJRU5ErkJggg==") 28 /  28px / 0 round;
     border-width:  28px;

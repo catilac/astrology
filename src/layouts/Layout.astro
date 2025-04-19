@@ -1,8 +1,10 @@
 ---
 import SMWHead from "../components/SMWHead.astro";
 import Navigation from "../components/Navigation.astro";
+import Grid from "../components/Grid.astro";
 
-import '../styles/global.css';
+import '../styles/broider.css';
+import '../styles/colors.css';
 ---
 
 <!DOCTYPE html>
@@ -14,15 +16,17 @@ import '../styles/global.css';
    </head>
 
    <body>
-      <SMWHead />
-
-      <marquee>Welcome to my site.</marquee>
-
-      <Navigation />
-
-      <slot />
-
+      <Grid>
+         <SMWHead />
+         <marquee>Welcome to my site.</marquee>
+         <Navigation />
+         <slot />
+      </Grid>
    </body>
 </html>
 
 <script src="../scripts/moon_title.ts"></script>
+
+<style>
+   body { background-color: var(--moon-medium); }
+</style>
