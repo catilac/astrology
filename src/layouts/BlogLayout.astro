@@ -1,0 +1,45 @@
+---
+import Layout from './Layout.astro';
+
+interface Props {
+   title: string;
+   description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<Layout title={`${title} · Soft Moon World`} description={description}>
+   <main class="blog broider3">
+      <slot />
+   </main>
+</Layout>
+
+<style>
+   .blog {
+      box-sizing: border-box;
+      grid-column: 1 / -1;
+      width: 100%;
+      min-width: 0;
+      max-width: 760px;
+      padding: clamp(0.75rem, 3vw, 2rem);
+      line-height: 1.7;
+      overflow-wrap: anywhere;
+   }
+   .blog :global(h1), .blog :global(h2), .blog :global(h3) {
+      line-height: 1.25;
+   }
+   .blog :global(h1) { margin-top: 0; }
+   .blog :global(img), .blog :global(video) {
+      max-width: 100%;
+      height: auto;
+   }
+   .blog :global(pre) { padding: 1rem; overflow-x: auto; }
+   .blog :global(blockquote) {
+      border-inline-start: 3px solid currentColor;
+      margin-inline: 0;
+      padding-inline-start: 1rem;
+   }
+   .blog :global(table) { display: block; overflow-x: auto; }
+   .blog :global(th), .blog :global(td) { padding: 0.4rem 0.75rem; }
+</style>

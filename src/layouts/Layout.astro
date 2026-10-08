@@ -5,14 +5,23 @@ import Grid from "../components/Grid.astro";
 
 import '../styles/broider.css';
 import '../styles/colors.css';
+
+interface Props {
+   title?: string;
+   description?: string;
+}
+
+const { title = 'Oh, hello', description } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width,initial-scale=1" />
-      <title></title>
+      <title>{title}</title>
+      {description && <meta name="description" content={description} />}
+      <link rel="alternate" type="application/rss+xml" title="Soft Moon World Blog" href="/rss.xml" />
    </head>
 
    <body>
