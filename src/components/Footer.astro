@@ -1,0 +1,29 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer>
+   <p>
+      <span>☽ © {year} Moon Davé</span>
+      <span><a href="/rss.xml">RSS</a></span>
+      <span><a href="#top">Back to top ↑</a></span>
+   </p>
+</footer>
+
+<style>
+   footer {
+      grid-area: foot;
+      border-top: 1px dotted var(--color-muted);
+      padding-top: var(--space-4);
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      color: var(--color-text);
+   }
+   a { color: inherit; }
+   p {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-2) var(--space-5);
+   }
+</style>

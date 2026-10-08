@@ -32,5 +32,10 @@ import Card from "./Card.astro";
       white-space: nowrap;
       color: var(--color-accent);
       text-decoration: none;
+      transition: color 150ms, transform 150ms;
+   }
+   .ascii:hover, .ascii:focus-visible {
+      color: var(--color-link);
+      transform: translateY(-2px);
    }
 </style>
