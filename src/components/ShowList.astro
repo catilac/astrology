@@ -1,18 +1,17 @@
 ---
+import Card from './Card.astro';
 import showData from '../data/performances.json';
 ---
 
-<section class="shows card broider3">
-   <h2>Performances</h2>
+<Card title="Performances" wide>
    <ul>
       {showData.map((show) => (
          <li><span class="date">{show.date}</span> <span>{show.loc}</span></li>
       ))}
    </ul>
-</section>
+</Card>
 
 <style>
-   .shows { grid-column: 1 / -1; }
    ul {
       list-style: none;
       padding: 0;

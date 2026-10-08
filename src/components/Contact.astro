@@ -1,11 +1,7 @@
-<p class="reach-me card broider2">
-   I can be reached by email: <em>moon [at] softmoon.world</em>
-</p>
+---
+import Card from './Card.astro';
+---
 
-<style>
-   .reach-me {
-      grid-column: 1 / -1;
-      margin: 0;
-      padding: var(--space-3) var(--space-4);
-   }
-</style>
+<Card as="p" border="broider2" wide>
+   I can be reached by email: <em>moon [at] softmoon.world</em>
+</Card>

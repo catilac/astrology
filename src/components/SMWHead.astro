@@ -1,4 +1,8 @@
-<a href="/index.html" class="ascii card broider3" aria-label="Soft Moon World, home">
+---
+import Card from "./Card.astro";
+---
+
+<Card as="a" href="/index.html" class="ascii" aria-label="Soft Moon World, home">
    <div aria-hidden="true">
       ░▒█▀▀▀█░▄▀▀▄░█▀▀░▀█▀░<br />
       ░░▀▀▀▄▄░█░░█░█▀░░░█░░<br />
@@ -14,7 +18,7 @@
       ░▒█▒█▒█░█░░█░█▄▄▀░█░░█░█<br />
       ░▒▀▄▀▄▀░░▀▀░░▀░▀▀░▀▀░▀▀░<br />
    </div>
-</a>
+</Card>
 
 <style>
    .ascii {

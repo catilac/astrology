@@ -1,10 +1,11 @@
 ---
-import SMWHead from "../components/SMWHead.astro";
-import Navigation from "../components/Navigation.astro";
-
+// styles first, so the base layer is declared before component CSS
 import '../styles/broider.css';
 import '../styles/tokens.css';
 import '../styles/global.css';
+
+import SMWHead from "../components/SMWHead.astro";
+import Navigation from "../components/Navigation.astro";
 
 interface Props {
    title?: string;

@@ -1,5 +1,6 @@
 ---
 import Layout from './Layout.astro';
+import Card from '../components/Card.astro';
 
 interface Props {
    title: string;
@@ -10,14 +11,13 @@ const { title, description } = Astro.props;
 ---
 
 <Layout title={`${title} · Soft Moon World`} description={description}>
-   <div class="blog card broider3">
+   <Card as="div" class="blog" wide>
       <slot />
-   </div>
+   </Card>
 </Layout>
 
 <style>
    .blog {
-      grid-column: 1 / -1;
       max-width: 46rem;
       padding: clamp(var(--space-3), 3vw, var(--space-6));
       line-height: 1.7;

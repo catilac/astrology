@@ -1,4 +1,6 @@
 ---
+import Card from "./Card.astro";
+
 const pages = [
    { href: "/index.html", label: "Home" },
    { href: "/live.html", label: "Performances" },
@@ -18,7 +20,7 @@ const isCurrent = (href: string) =>
    path === href || (href === "/blog.html" && path.startsWith("/blog/"));
 ---
 
-<nav class="card broider3">
+<Card as="nav" class="nav">
    <ul>
       {pages.map(({ href, label }) => (
          <li><a href={href} aria-current={isCurrent(href) ? "page" : undefined}>{label}</a></li>
@@ -30,10 +32,10 @@ const isCurrent = (href: string) =>
          <li><a href={href} rel={rel}>{label}</a></li>
       ))}
    </ul>
-</nav>
+</Card>
 
 <style>
-   nav { font-family: var(--font-mono); }
+   .nav { font-family: var(--font-mono); }
    ul {
       list-style: none;
       padding: 0;
