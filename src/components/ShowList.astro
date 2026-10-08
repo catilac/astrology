@@ -2,16 +2,32 @@
 import showData from '../data/performances.json';
 ---
 
-<ul class="broider3">
-   {showData.map((show) => <li>{show.date} - {show.loc}</li>)}
-</ul>
+<section class="shows card broider3">
+   <h2>Performances</h2>
+   <ul>
+      {showData.map((show) => (
+         <li><span class="date">{show.date}</span> <span>{show.loc}</span></li>
+      ))}
+   </ul>
+</section>
 
 <style>
-   ul { 
-      list-style-type: none;
-      padding: 5px;
-      width: fit-content;
-      grid-column-start: 1;
-      grid-row-start: 3;
+   .shows { grid-column: 1 / -1; }
+   ul {
+      list-style: none;
+      padding: 0;
+   }
+   li {
+      display: grid;
+      grid-template-columns: 7rem minmax(0, 1fr);
+      gap: var(--space-4);
+      padding: var(--space-1) 0;
+   }
+   li + li { border-top: 1px dotted var(--color-muted); }
+   .date {
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      color: var(--color-muted);
+      align-self: center;
    }
 </style>

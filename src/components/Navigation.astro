@@ -1,27 +1,64 @@
-<nav class="broider3">
+---
+const pages = [
+   { href: "/index.html", label: "Home" },
+   { href: "/live.html", label: "Performances" },
+   { href: "/blog.html", label: "Blog" },
+   { href: "/resume.pdf", label: "Resume" },
+];
+const elsewhere = [
+   { href: "https://www.are.na/moon-dave/channels", label: "Are.na" },
+   { href: "https://github.com/catilac", label: "Github" },
+   { href: "https://bsky.app/profile/softmoon.world", label: "Bluesky" },
+   { href: "https://infosec.exchange/@catilac", label: "Mastodon", rel: "me" },
+   { href: "https://instagram.com/softmoonworld", label: "Instagram" },
+];
+
+const path = Astro.url.pathname === "/" ? "/index.html" : Astro.url.pathname;
+const isCurrent = (href: string) =>
+   path === href || (href === "/blog.html" && path.startsWith("/blog/"));
+---
+
+<nav class="card broider3">
    <ul>
-      <a href="/index.html">Home</a>
-      <a href="/live.html">Performances</a>
-      <a href="/blog.html">Blog</a>
-      <a href="https://www.are.na/moon-dave/channels">Are.na</a>
-      <a href="https://github.com/catilac">Github</a>
-      <a href="https://bsky.app/profile/softmoon.world">Bluesky</a>
-      <a rel="me" href="https://infosec.exchange/@catilac">Mastodon</a>
-      <a href="https://instagram.com/softmoonworld">Instagram</a>
-      <a href="/resume.pdf">Resume</a>
+      {pages.map(({ href, label }) => (
+         <li><a href={href} aria-current={isCurrent(href) ? "page" : undefined}>{label}</a></li>
+      ))}
+   </ul>
+   <h2>Elsewhere</h2>
+   <ul>
+      {elsewhere.map(({ href, label, rel }) => (
+         <li><a href={href} rel={rel}>{label}</a></li>
+      ))}
    </ul>
 </nav>
 
 <style>
-   nav {
-      padding: 5px;
-      width: fit-content;
-      grid-column-start: 1;
-      grid-row-start: 2;
-      grid-row-end: 2;
+   nav { font-family: var(--font-mono); }
+   ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
    }
-   nav ul { 
-      margin: auto; 
-      padding-inline-start: 0; 
+   h2 {
+      font-size: var(--text-sm);
+      color: var(--color-muted);
+      margin-bottom: var(--space-2);
+   }
+   a { text-decoration: none; }
+   a:hover { text-decoration: underline; }
+   a[aria-current="page"] {
+      color: var(--color-accent);
+      font-weight: bold;
+   }
+   a[aria-current="page"]::before { content: "☽ "; }
+
+   @media (max-width: 720px) {
+      ul {
+         flex-direction: row;
+         flex-wrap: wrap;
+         gap: var(--space-2) var(--space-4);
+      }
    }
 </style>

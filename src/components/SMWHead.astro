@@ -1,31 +1,32 @@
-<div class="ascii broider3">
-   <div text="soft">
+<a href="/index.html" class="ascii card broider3" aria-label="Soft Moon World, home">
+   <div aria-hidden="true">
       ░▒█▀▀▀█░▄▀▀▄░█▀▀░▀█▀░<br />
       ░░▀▀▀▄▄░█░░█░█▀░░░█░░<br />
       ░▒█▄▄▄█░░▀▀░░▀░░░░▀░░<br />
    </div>
-   <div text="moon">
+   <div aria-hidden="true">
       ░▒█▀▄▀█░▄▀▀▄░▄▀▀▄░█▀▀▄░<br />
       ░▒█▒█▒█░█░░█░█░░█░█░▒█░<br />
       ░▒█░░▒█░░▀▀░░░▀▀░░▀░░▀░<br />
    </div>
-   <div text="world">
+   <div aria-hidden="true">
       ░▒█░░▒█░▄▀▀▄░█▀▀▄░█░░█▀▄<br />
       ░▒█▒█▒█░█░░█░█▄▄▀░█░░█░█<br />
       ░▒▀▄▀▄▀░░▀▀░░▀░▀▀░▀▀░▀▀░<br />
    </div>
-</div>
+</a>
 
 <style>
    .ascii {
       display: flex;
       flex-direction: column;
-      line-height: 1.19em;
-      grid-column-start: 1;
-      color: var(--moon-gray);
-   }
-   .ascii div {
-      align-self: center;
-      padding: 5px;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      line-height: 1.15;
+      white-space: nowrap;
+      color: var(--color-accent);
+      text-decoration: none;
    }
 </style>

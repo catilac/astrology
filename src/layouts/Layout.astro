@@ -1,7 +1,6 @@
 ---
 import SMWHead from "../components/SMWHead.astro";
 import Navigation from "../components/Navigation.astro";
-import Grid from "../components/Grid.astro";
 
 import '../styles/broider.css';
 import '../styles/tokens.css';
@@ -26,16 +25,66 @@ const { title = 'Oh, hello', description } = Astro.props;
    </head>
 
    <body>
-      <Grid>
-         <SMWHead />
-         <marquee>Welcome to my site.</marquee>
-         <Navigation />
-         <slot />
-      </Grid>
+      <div class="page">
+         <aside class="sidebar">
+            <SMWHead />
+            <Navigation />
+         </aside>
+         <div class="main-col">
+            <marquee>Welcome to my site.</marquee>
+            <main class="content">
+               <slot />
+            </main>
+         </div>
+      </div>
    </body>
 </html>
 
 <script src="../scripts/moon_title.ts"></script>
 
 <style>
+   .page {
+      display: grid;
+      grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+      grid-template-areas: "side main";
+      gap: var(--space-5);
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: var(--space-6) var(--space-5);
+      align-items: start;
+   }
+   .sidebar {
+      grid-area: side;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      position: sticky;
+      top: var(--space-6);
+   }
+   .main-col {
+      grid-area: main;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      min-width: 0;
+   }
+   marquee {
+      font-family: var(--font-mono);
+      color: var(--color-accent);
+   }
+   .content {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--card-min)), 1fr));
+      gap: var(--space-4);
+   }
+
+   @media (max-width: 720px) {
+      .page {
+         grid-template-columns: minmax(0, 1fr);
+         grid-template-areas: "side" "main";
+         gap: var(--space-4);
+         padding: var(--space-4);
+      }
+      .sidebar { position: static; }
+   }
 </style>
