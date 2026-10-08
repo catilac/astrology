@@ -41,3 +41,19 @@ Future dates do not schedule publication: any post without `draft: true` is publ
 Run `npm run build` to generate the site, then deploy `dist/` as usual. Adding or
 editing posts updates the site and feed on the next build and deployment.
 The feed uses `site` in `astro.config.mjs` for absolute links; update it if the domain changes.
+
+## License
+
+The code is dedicated to the public domain under [CC0 1.0](LICENSE): templates,
+components, styles, scripts, and configuration are free to copy and reuse.
+
+The content is © Moon Davé, all rights reserved, and is not covered by CC0. This
+includes:
+
+- blog posts in `src/content/`
+- performance history in `src/data/`
+- everything in `public/`, including the resume and images
+- the bio and "Currently" text in `src/components/About.astro` and `src/components/Now.astro`
+- the Soft Moon World ASCII logo in `src/components/SMWHead.astro`
+
+Please ask before reusing any of it.

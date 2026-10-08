@@ -1,0 +1,41 @@
+---
+import type { HTMLAttributes, HTMLTag } from 'astro/types';
+
+type Props = HTMLAttributes<'section'> & {
+   as?: HTMLTag;
+   title?: string;
+   border?: 'broider' | 'broider2' | 'broider3';
+   wide?: boolean;
+   href?: string;
+};
+
+const {
+   as: Tag = 'section',
+   title,
+   border = 'broider3',
+   wide = false,
+   class: className,
+   ...rest
+} = Astro.props;
+---
+
+<Tag class:list={['card', border, { wide }, className]} {...rest}>
+   {title && <h2 class="card-title">{title}</h2>}
+   <slot />
+</Tag>
+
+<style>
+   /* layered so components can override these defaults regardless of stylesheet order */
+   @layer card {
+      .card {
+         background-color: var(--color-surface);
+         background-clip: padding-box;
+         margin: 0;
+         padding: var(--space-4);
+         min-width: 0;
+      }
+      .broider2 { padding: var(--space-3) var(--space-4); }
+      .wide { grid-column: 1 / -1; }
+      .card-title { margin-bottom: var(--space-3); }
+   }
+</style>

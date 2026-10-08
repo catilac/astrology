@@ -1,31 +1,41 @@
-<div class="ascii broider3">
-   <div text="soft">
+---
+import Card from "./Card.astro";
+---
+
+<Card as="a" href="/index.html" class="ascii" aria-label="Soft Moon World, home">
+   <div aria-hidden="true">
       ░▒█▀▀▀█░▄▀▀▄░█▀▀░▀█▀░<br />
       ░░▀▀▀▄▄░█░░█░█▀░░░█░░<br />
       ░▒█▄▄▄█░░▀▀░░▀░░░░▀░░<br />
    </div>
-   <div text="moon">
+   <div aria-hidden="true">
       ░▒█▀▄▀█░▄▀▀▄░▄▀▀▄░█▀▀▄░<br />
       ░▒█▒█▒█░█░░█░█░░█░█░▒█░<br />
       ░▒█░░▒█░░▀▀░░░▀▀░░▀░░▀░<br />
    </div>
-   <div text="world">
+   <div aria-hidden="true">
       ░▒█░░▒█░▄▀▀▄░█▀▀▄░█░░█▀▄<br />
       ░▒█▒█▒█░█░░█░█▄▄▀░█░░█░█<br />
       ░▒▀▄▀▄▀░░▀▀░░▀░▀▀░▀▀░▀▀░<br />
    </div>
-</div>
+</Card>
 
 <style>
    .ascii {
       display: flex;
       flex-direction: column;
-      line-height: 1.19em;
-      grid-column-start: 1;
-      color: var(--moon-gray);
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      line-height: 1.15;
+      white-space: nowrap;
+      color: var(--color-accent);
+      text-decoration: none;
+      transition: color 150ms, transform 150ms;
    }
-   .ascii div {
-      align-self: center;
-      padding: 5px;
+   .ascii:hover, .ascii:focus-visible {
+      color: var(--color-link);
+      transform: translateY(-2px);
    }
 </style>
