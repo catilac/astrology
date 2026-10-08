@@ -1,0 +1,30 @@
+---
+import BlogLayout from '../layouts/BlogLayout.astro';
+import { getPublishedPosts, postUrl, formatPostDate } from '../lib/blog';
+
+const posts = await getPublishedPosts();
+---
+
+<BlogLayout title="Blog" description="Writing from Soft Moon World.">
+   <h1>Blog &#x263D;</h1>
+   <p><a href="/rss.xml">Subscribe via RSS</a></p>
+   {posts.length === 0 ? (
+      <p>No posts yet. Check back soon, or subscribe for updates.</p>
+   ) : (
+      <ul class="posts">
+         {posts.map((post) => (
+            <li>
+               <h2><a href={postUrl(post.id)}>{post.data.title}</a></h2>
+               <time datetime={post.data.pubDate.toISOString()}>{formatPostDate(post.data.pubDate)}</time>
+               <p>{post.data.description}</p>
+            </li>
+         ))}
+      </ul>
+   )}
+</BlogLayout>
+
+<style>
+   .posts { list-style: none; padding: 0; }
+   .posts li { margin-top: 2rem; }
+   .posts h2 { margin-bottom: 0.25rem; }
+</style>
