@@ -4,7 +4,8 @@ import Navigation from "../components/Navigation.astro";
 import Grid from "../components/Grid.astro";
 
 import '../styles/broider.css';
-import '../styles/colors.css';
+import '../styles/tokens.css';
+import '../styles/global.css';
 
 interface Props {
    title?: string;
@@ -37,5 +38,4 @@ const { title = 'Oh, hello', description } = Astro.props;
 <script src="../scripts/moon_title.ts"></script>
 
 <style>
-   body { background-color: var(--moon-medium); }
 </style>
