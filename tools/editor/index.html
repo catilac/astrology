@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>✎ blog editor</title>
+   </head>
+   <body>
+      <header class="bar">
+         <select id="post-select" aria-label="Post"></select>
+         <button id="new-post" type="button">+ new post</button>
+         <span id="status" class="status" role="status"></span>
+         <a id="open-preview" class="open" target="_blank">open preview ↗</a>
+      </header>
+      <main class="panes">
+         <section class="pane editor-pane">
+            <form id="meta" class="meta" autocomplete="off">
+               <label>title <input name="title" required /></label>
+               <label>description <input name="description" required /></label>
+               <div class="row">
+                  <label>date <input name="pubDate" type="date" required /></label>
+                  <label class="check"><input name="draft" type="checkbox" /> draft</label>
+               </div>
+            </form>
+            <div id="editor"></div>
+         </section>
+         <section class="pane preview-pane">
+            <iframe id="preview" title="Preview"></iframe>
+         </section>
+      </main>
+      <script type="module" src="./main.ts"></script>
+   </body>
+</html>
