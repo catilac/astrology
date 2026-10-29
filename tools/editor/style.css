@@ -1,5 +1,7 @@
 * { box-sizing: border-box; }
 
+[hidden] { display: none !important; }
+
 html, body { height: 100%; margin: 0; }
 
 body {
@@ -23,6 +25,7 @@ body {
 .bar .status { flex: 1; font-family: var(--font-mono); opacity: 0.8; }
 .bar .status.error { color: #ffb4b4; opacity: 1; }
 .bar .open { color: inherit; }
+.bar [aria-pressed="true"] { background: var(--moon-gray); color: var(--moon-heavy); }
 
 .panes {
    flex: 1;
@@ -53,6 +56,21 @@ body {
    border-bottom: 1px solid var(--color-muted);
    padding: var(--space-1) 0;
 }
+
+.source {
+   display: block;
+   width: 100%;
+   min-height: calc(100% - 12rem);
+   margin-top: var(--space-4);
+   padding: var(--space-5) var(--space-7);
+   border: 0;
+   resize: none;
+   background: transparent;
+   color: var(--color-text);
+   font: var(--text-sm)/1.7 var(--font-mono);
+   tab-size: 4;
+}
+.source:focus { outline: none; }
 
 /* Crepe's frame theme, recoloured with the site palette. */
 .milkdown {

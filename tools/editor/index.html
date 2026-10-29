@@ -9,6 +9,7 @@
       <header class="bar">
          <select id="post-select" aria-label="Post"></select>
          <button id="new-post" type="button">+ new post</button>
+         <button id="source-toggle" type="button" aria-pressed="false">raw markdown</button>
          <span id="status" class="status" role="status"></span>
          <a id="open-preview" class="open" target="_blank">open preview ↗</a>
       </header>
@@ -23,6 +24,7 @@
                </div>
             </form>
             <div id="editor"></div>
+            <textarea id="source" class="source" spellcheck="true" aria-label="Markdown" hidden></textarea>
          </section>
          <section class="pane preview-pane">
             <iframe id="preview" title="Preview"></iframe>

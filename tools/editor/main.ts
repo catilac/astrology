@@ -19,6 +19,8 @@ const status = $('status');
 const preview = $<HTMLIFrameElement>('preview');
 const openPreview = $<HTMLAnchorElement>('open-preview');
 const editorRoot = $('editor');
+const source = $<HTMLTextAreaElement>('source');
+const sourceToggle = $<HTMLButtonElement>('source-toggle');
 
 // Crepe stores an image's resize ratio in the markdown alt text and its caption
 // in the title. Use the caption as alt text instead so posts stay accessible.
@@ -42,6 +44,7 @@ const imageBlockAltText = imageBlockSchema.extendSchema((prev) => (ctx) => ({
 
 let current: Post | null = null;
 let crepe: Crepe | null = null;
+let showSource = false;
 let saveTimer: number | undefined;
 let saving: Promise<void> = Promise.resolve();
 
@@ -144,6 +147,7 @@ async function flush() {
 }
 
 function currentMarkdown() {
+   if (showSource) return source.value;
    return crepe ? tidyMarkdown(crepe.getMarkdown()) : current?.body ?? '';
 }
 
@@ -189,7 +193,8 @@ async function open(post: Post) {
    select.value = post.slug;
    history.replaceState(null, '', `?post=${encodeURIComponent(post.slug)}`);
 
-   await createEditor(post.body);
+   if (showSource) source.value = post.body;
+   else await createEditor(post.body);
 
    preview.src = previewUrl(post.slug);
    openPreview.href = previewUrl(post.slug);
@@ -212,6 +217,24 @@ select.addEventListener('change', async () => {
 });
 
 meta.addEventListener('input', scheduleSave);
+source.addEventListener('input', scheduleSave);
+
+// Swap between Milkdown and the plain markdown. Each side starts from what the
+// other one has, so nothing typed is lost.
+sourceToggle.addEventListener('click', async () => {
+   const markdown = currentMarkdown();
+   showSource = !showSource;
+   if (showSource) {
+      await destroyEditor();
+      source.value = markdown;
+   } else {
+      await createEditor(markdown);
+   }
+   source.hidden = !showSource;
+   editorRoot.hidden = showSource;
+   sourceToggle.setAttribute('aria-pressed', String(showSource));
+   if (showSource) source.focus();
+});
 
 $('new-post').addEventListener('click', async () => {
    const slug = prompt('Slug for the new post (used in its URL):')?.trim().toLowerCase().replace(/\s+/g, '-');
