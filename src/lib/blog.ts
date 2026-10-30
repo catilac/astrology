@@ -7,6 +7,11 @@ export async function getPublishedPosts() {
    );
 }
 
+// Drafts get pages in dev so the editor can preview them; they're never listed or built.
+export async function getRenderablePosts() {
+   return getCollection('blog', ({ data }) => import.meta.env.DEV || !data.draft);
+}
+
 export function postUrl(id: string) {
    return `/blog/${id.split('/').map(encodeURIComponent).join('/')}.html`;
 }

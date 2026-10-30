@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "write": "concurrently -k -n site,editor -c magenta,cyan \"astro dev --port 4321\" \"vite --config tools/editor/vite.config.ts --open\""
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.19",
@@ -15,5 +16,12 @@
   "allowScripts": {
     "fsevents@2.3.3": true,
     "esbuild@0.28.2": true
+  },
+  "devDependencies": {
+    "@milkdown/crepe": "^7.23.0",
+    "@milkdown/kit": "^7.23.0",
+    "concurrently": "^10.0.6",
+    "gray-matter": "^4.0.3",
+    "vite": "^8.3.5"
   }
 }

@@ -10,8 +10,17 @@ npm run dev
 
 ## Writing blog posts
 
-Add a `.md` file to `src/content/blog/`, or copy `first-post.md` as a starting
-point. Each post needs this frontmatter followed by Markdown:
+The easiest way is the local editor:
+
+```
+npm run write
+```
+
+This starts the site on port 4321 and opens the editor on port 4322. Edits save
+automatically and the preview beside the editor is the real site, so it reloads as
+you type. Paste or drag in an image and it is saved to `src/assets/blog/<post>/`.
+
+You can also add a `.md` file to `src/content/blog/` by hand. Each post needs this frontmatter followed by Markdown:
 
 ```markdown
 ---
@@ -24,14 +33,16 @@ draft: true
 Your writing goes here. Use headings, links, images, lists, and code blocks.
 ```
 
-Set `draft: false` (or remove the draft field) to publish. Drafts are excluded
-from the blog index, post pages, and RSS feed, including during local development.
-To preview a post locally, temporarily set `draft: false` and run `npm run dev`.
+Set `draft: false` (or remove the draft field) to publish. Drafts are left out of
+the blog index, the RSS feed, and the build. During local development they still get
+a post page, so you can preview one at `/blog/<name>.html`.
 
 The filename determines the URL: `my-new-post.md` becomes
 `/blog/my-new-post.html`. Keep filenames lowercase with hyphens; subfolders are
 supported. Use `##` for headings within a post; its title is already the main heading.
-Put images in `public/images/` and reference them as `![Alt text](/images/photo.jpg)`.
+Put images in `src/assets/blog/<post>/` and reference them relative to the post,
+like `![Alt text](../../assets/blog/my-new-post/photo.jpg)`. Astro resizes them and
+converts them to webp at build time. In the editor, an image's caption is its alt text.
 
 The blog is at `/blog.html` and the RSS feed is at `/rss.xml`. Posts are sorted
 newest first. RSS includes each post's title, summary, publication date, and link.
